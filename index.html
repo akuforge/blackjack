@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Blackjack">
+<meta name="theme-color" content="#0a3328">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preload" href="fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<title>Blackjack Navigator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header id="top">
+    <button id="bMenu" class="iconbtn" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <div id="tName"></div>
+    <div id="bankBox"><div id="bank"></div><div id="countBox" hidden></div></div>
+  </header>
+  <div id="shoeBar" title="Shoe dealt"><i></i></div>
+  <main id="felt">
+    <section id="dealerZone">
+      <div class="hand dealer" id="dealer"></div>
+    </section>
+    <svg id="arc" viewBox="0 0 400 96" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <path id="arc1" d="M36 12 Q200 76 364 12" fill="none"/>
+      <path id="arc2" d="M36 40 Q200 104 364 40" fill="none"/>
+      <text class="arcBig"><textPath href="#arc1" startOffset="50%" text-anchor="middle" id="arcT1"></textPath></text>
+      <text class="arcSmall"><textPath href="#arc2" startOffset="50%" text-anchor="middle" id="arcT2"></textPath></text>
+    </svg>
+    <section id="coach" aria-live="polite"></section>
+    <section id="playerZone"><div id="hands"></div></section>
+    <section id="spots">
+      <button class="side" id="side0"></button>
+      <button id="betSpot" aria-label="Main bet"><span class="ring"></span><span class="stack" id="betStack"></span><span class="amt" id="betAmt"></span></button>
+      <button class="side" id="side1"></button>
+    </section>
+    <div id="toast"></div>
+  </main>
+  <footer id="bar">
+    <div id="betBar">
+      <div id="rail"></div>
+      <div class="row">
+        <button class="btn ghost" id="bClear">Clear</button>
+        <button class="btn gold" id="bDeal">Deal</button>
+      </div>
+    </div>
+    <div id="playBar" hidden>
+      <button class="act" data-a="H"><b>Hit</b><small id="evH"></small></button>
+      <button class="act" data-a="S"><b>Stand</b><small id="evS"></small></button>
+      <button class="act" data-a="D"><b>Double</b><small id="evD"></small></button>
+      <button class="act" data-a="P"><b>Split</b><small id="evP"></small></button>
+      <button class="act" data-a="R"><b>Surrender</b><small id="evR"></small></button>
+    </div>
+    <div id="insBar" hidden>
+      <div id="insQ"></div>
+      <div class="row">
+        <button class="btn ghost" id="bInsNo">No insurance</button>
+        <button class="btn" id="bInsYes">Insurance</button>
+      </div>
+    </div>
+  </footer>
+  <div id="sheetBack" hidden></div>
+  <aside id="sheet" hidden role="dialog" aria-modal="true">
+    <div id="sheetHead"><button id="sBack" class="iconbtn" aria-label="Back"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><h2 id="sTitle"></h2><button id="sClose" class="iconbtn" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div id="sheetBody"></div>
+  </aside>
+</div>
+<script src="engine.js"></script>
+<script src="content.js"></script>
+<script src="app.js"></script>
+<script src="sheets.js"></script>
+</body>
+</html>
